@@ -1,0 +1,13 @@
+.searchBar {
+	display: flex;
+	.searchLeft {
+		display: flex;
+	}
+	.searchInput {
+		text-align: center;
+		font-family: FontAwesome;
+	}
+	.searchRight {
+		display: flex;
+	}
+}
