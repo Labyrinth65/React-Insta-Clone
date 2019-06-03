@@ -1,0 +1,8 @@
+.postContainer {
+	.postIcons {
+		display: flex;
+		.postIcon2 {
+			transform: scaleX(-1);
+		}
+	}
+}
