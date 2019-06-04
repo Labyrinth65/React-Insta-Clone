@@ -46,6 +46,10 @@
 			.addComment {
 				border: none;
 				padding: 2% 3%;
+				width: 100%;
+			}
+			input:focus {
+				outline: none;
 			}
 		}
 	}
