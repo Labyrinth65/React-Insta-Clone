@@ -20,16 +20,7 @@ class App extends React.Component {
 				</header>
 				<main>
 					{this.state.data.map(el => (
-						<PostContainer
-							key={el.id}
-							// userThumb={el.thumbnailUrl}
-							// username={el.username}
-							// img={el.imageUrl}
-							// likes={el.likes}
-							// time={el.timestamp}
-							// comments={el.comments}
-							{...el}
-						/>
+						<PostContainer key={el.id} {...el} />
 					))}
 				</main>
 			</div>

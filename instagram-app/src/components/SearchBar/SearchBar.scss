@@ -1,13 +1,33 @@
 .searchBar {
 	display: flex;
+	justify-content: space-between;
+	padding: 2%;
 	.searchLeft {
 		display: flex;
+		font-weight: bold;
+		width: 30%;
+		.instaLogo {
+			font-size: 1.5rem;
+			padding-right: 5%;
+		}
+		.instaTitle {
+			padding: 3% 0 0 3%;
+			border-left: solid grey 1px;
+			img {
+				width: 40%;
+			}
+		}
 	}
 	.searchInput {
 		text-align: center;
 		font-family: FontAwesome;
+		width: 20%;
+		font-size: 0.7rem;
 	}
 	.searchRight {
 		display: flex;
+		width: 30%;
+		justify-content: space-around;
+		padding: 1% 0 0 10%;
 	}
 }

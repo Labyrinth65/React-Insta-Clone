@@ -1,25 +1,28 @@
 import React from "react";
 import "./SearchBar.scss";
+import instaTitle from "./InstaTitle.png";
 
 const SearchBar = props => {
 	return (
 		<div className="searchBar">
 			<div className="searchLeft">
 				<div className="instaLogo">
-					<i class="fab fa-instagram" />
+					<i className="fab fa-instagram" />
 				</div>
-				<div>Instagram</div>
+				<div className="instaTitle">
+					<img src={instaTitle} alt="instagram" />
+				</div>
 			</div>
-			<input className="searchInput" placeholder="&#xF002; Search" />
+			<input className="searchInput" placeholder="&#xF002; Search  " />
 			<div className="searchRight">
 				<div className="iconRight">
-					<i class="far fa-compass" />
+					<i className="far fa-compass" />
 				</div>
 				<div className="iconRight">
-					<i class="far fa-heart" />
+					<i className="far fa-heart" />
 				</div>
 				<div className="iconRight">
-					<i class="far fa-user" />
+					<i className="far fa-user" />
 				</div>
 			</div>
 		</div>
