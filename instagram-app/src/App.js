@@ -69,9 +69,6 @@ class App extends React.Component {
 		this.setState({
 			searchValue: e.target.value
 		});
-		this.setState({
-			data: dummyData.filter(el => el.username.includes(this.state.searchValue))
-		});
 	};
 
 	render() {
@@ -81,9 +78,11 @@ class App extends React.Component {
 					<SearchBar searchChange={this.searchChange} />
 				</header>
 				<main>
-					{this.state.data.map(el => (
-						<PostContainer key={el.id} {...el} />
-					))}
+					{this.state.data
+						.filter(el => el.username.includes(this.state.searchValue))
+						.map(el => (
+							<PostContainer key={el.id} {...el} />
+						))}
 				</main>
 			</div>
 		);
