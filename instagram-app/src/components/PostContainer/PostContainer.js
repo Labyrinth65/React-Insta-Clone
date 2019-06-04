@@ -27,7 +27,7 @@ const PostContainer = props => {
 				<CardText className="likes">{props.likes} Likes</CardText>
 				<div className="postComment">
 					{props.comments.map(el => (
-						<CommentSection key={el.id} user={el.username} text={el.text} />
+						<CommentSection key={el.id} {...el} />
 					))}
 				</div>
 				<div className="timeWrap">
@@ -38,7 +38,9 @@ const PostContainer = props => {
 						</Moment>
 					</CardText>
 				</div>
-				<input className="addComment" placeholder="Add a comment..." />
+				<form>
+					<input className="addComment" placeholder="Add a comment..." />
+				</form>
 			</Card>
 		</div>
 	);

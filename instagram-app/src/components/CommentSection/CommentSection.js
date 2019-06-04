@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const CommentSection = props => {
 	return (
 		<div className="commentSection">
-			<b>{props.user}</b>
+			<b>{props.username}</b>
 			{"  "}
 			{props.text}
 		</div>
@@ -13,7 +13,7 @@ const CommentSection = props => {
 };
 
 CommentSection.propTypes = {
-	user: PropTypes.string.isRequired,
+	username: PropTypes.string.isRequired,
 	text: PropTypes.string.isRequired
 };
 

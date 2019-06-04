@@ -35,16 +35,18 @@
 			justify-content: center;
 
 			.timeStamp {
-				padding: 0 0 2% 0;
+				padding: 2% 0;
 				width: 95%;
 				font-size: 0.8rem;
 				color: grey;
 				border-bottom: 1px solid lightgrey;
 			}
 		}
-		.addComment {
-			border: none;
-			padding: 2% 3%;
+		form {
+			.addComment {
+				border: none;
+				padding: 2% 3%;
+			}
 		}
 	}
 }
