@@ -24,7 +24,7 @@ class PostContainer extends React.Component {
 	addComment = e => {
 		e.preventDefault();
 		const addedComment = {
-			username: "clem9281",
+			username: localStorage.getItem("user"),
 			text: this.state.newComment,
 			id: Date.now()
 		};
@@ -50,7 +50,7 @@ class PostContainer extends React.Component {
 						{this.props.username}
 					</div>
 					<div className="imageContainer">
-						<img src={this.props.imageUrl} alt="main" />
+						<CardImg src={this.props.imageUrl} alt="main" />
 					</div>
 					<div className="postIcons">
 						<div onClick={this.addLike} className="postIcon">

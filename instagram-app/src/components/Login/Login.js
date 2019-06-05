@@ -1,5 +1,6 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
+import instaTitle from "../SearchBar/InstaTitle.png";
 
 class Login extends React.Component {
 	constructor() {
@@ -17,14 +18,16 @@ class Login extends React.Component {
 	};
 
 	login = e => {
-		const user = this.state.username;
-		localStorage.setItem("user", user);
+		localStorage.setItem("user", this.state.username);
 		window.location.reload();
 	};
 
 	render() {
 		return (
 			<Form onSubmit={this.login}>
+				<div className="instaTitle">
+					<img src={instaTitle} alt="instagram" />
+				</div>
 				<FormGroup>
 					<Label>Username:</Label>
 					<Input
