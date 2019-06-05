@@ -69,6 +69,13 @@ class App extends React.Component {
 		this.setState({
 			searchValue: e.target.value
 		});
+
+		const searchTerm = e.target.value;
+		this.state.data.map(user => {
+			if (user.username.includes(searchTerm)) {
+				return (user.display = "");
+			} else return (user.display = "hide");
+		});
 	};
 
 	render() {
@@ -79,7 +86,7 @@ class App extends React.Component {
 				</header>
 				<main>
 					{this.state.data
-						.filter(el => el.username.includes(this.state.searchValue))
+						// .filter(el => el.username.includes(this.state.searchValue))
 						.map(el => (
 							<PostContainer key={el.id} {...el} />
 						))}

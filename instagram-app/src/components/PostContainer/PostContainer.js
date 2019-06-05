@@ -43,7 +43,7 @@ class PostContainer extends React.Component {
 
 	render() {
 		return (
-			<div className="postWrap">
+			<div className={["postWrap", this.props.display].join(" ")}>
 				<Card className="postContainer">
 					<div className="postTop">
 						<img src={this.props.thumbnailUrl} alt="thumb" />
