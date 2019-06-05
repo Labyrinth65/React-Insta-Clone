@@ -50,7 +50,7 @@ class PostContainer extends React.Component {
 						{this.props.username}
 					</div>
 					<div className="imageContainer">
-						<CardImg src={this.props.imageUrl} alt="main" />
+						<img src={this.props.imageUrl} alt="main" />
 					</div>
 					<div className="postIcons">
 						<div onClick={this.addLike} className="postIcon">
