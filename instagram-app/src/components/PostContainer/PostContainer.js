@@ -41,6 +41,8 @@ class PostContainer extends React.Component {
 		});
 	};
 
+	mouseOver = e => {};
+
 	render() {
 		return (
 			<div className={["postWrap", this.props.display].join(" ")}>
@@ -67,7 +69,7 @@ class PostContainer extends React.Component {
 						))}
 					</div>
 					<div className="timeWrap">
-						<CardText className="timeStamp">
+						<CardText onMouseOver={this.mouseOver} className="timeStamp">
 							<Moment parse="MMMM Do YYYY, HH:mm:ss a" fromNow>
 								{/* Need to add hover to show actual time */}
 								{this.props.timestamp}

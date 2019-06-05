@@ -1,0 +1,17 @@
+.loginWrap {
+	display: flex;
+	justify-content: center;
+	padding: 5% 0;
+	.loginContainer {
+		width: 50%;
+		padding: 2%;
+		border: 1px solid lightgrey;
+		.instaTitle {
+			display: flex;
+			justify-content: center;
+		}
+		.formName {
+			font-weight: bold;
+		}
+	}
+}

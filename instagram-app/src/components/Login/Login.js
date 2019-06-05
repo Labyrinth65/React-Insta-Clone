@@ -1,6 +1,7 @@
 import React from "react";
 import { Form, FormGroup, Label, Input, Button } from "reactstrap";
 import instaTitle from "../SearchBar/InstaTitle.png";
+import "./Login.scss";
 
 class Login extends React.Component {
 	constructor() {
@@ -18,34 +19,37 @@ class Login extends React.Component {
 	};
 
 	login = e => {
+		e.preventDefault();
 		localStorage.setItem("user", this.state.username);
 		window.location.reload();
 	};
 
 	render() {
 		return (
-			<Form onSubmit={this.login}>
-				<div className="instaTitle">
-					<img src={instaTitle} alt="instagram" />
-				</div>
-				<FormGroup>
-					<Label>Username:</Label>
-					<Input
-						name="username"
-						onChange={this.handleChange}
-						placeholder="username"
-					/>
-				</FormGroup>
-				<FormGroup>
-					<Label>Password:</Label>
-					<Input
-						name="password"
-						onChange={this.handleChange}
-						placeholder="password"
-					/>
-				</FormGroup>
-				<Button onClick={this.login}>Login</Button>
-			</Form>
+			<div className="loginWrap">
+				<Form className="loginContainer" onSubmit={this.login}>
+					<div className="instaTitle">
+						<img src={instaTitle} alt="instagram" />
+					</div>
+					<FormGroup className="formName">
+						<Label className="labelName">Username:</Label>
+						<Input
+							name="username"
+							onChange={this.handleChange}
+							placeholder="Username"
+						/>
+					</FormGroup>
+					<FormGroup className="formName">
+						<Label className="labelName">Password:</Label>
+						<Input
+							name="password"
+							onChange={this.handleChange}
+							placeholder="Password"
+						/>
+					</FormGroup>
+					<Button>Login</Button>
+				</Form>
+			</div>
 		);
 	}
 }
