@@ -43,14 +43,18 @@
 			}
 		}
 		form {
+			display: flex;
 			.addComment {
 				border: none;
 				padding: 2% 3%;
-				width: 100%;
+				flex-grow: 1;
 			}
 			input:focus {
 				outline: none;
 			}
 		}
 	}
+}
+.hide {
+	display: none;
 }
