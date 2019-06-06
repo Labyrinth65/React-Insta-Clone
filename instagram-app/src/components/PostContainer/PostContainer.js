@@ -24,7 +24,7 @@ class PostContainer extends React.Component {
 	addComment = e => {
 		e.preventDefault();
 		const addedComment = {
-			username: "clem9281",
+			username: localStorage.getItem("user"),
 			text: this.state.newComment,
 			id: Date.now()
 		};
@@ -40,6 +40,8 @@ class PostContainer extends React.Component {
 			likes: this.state.likes + 1
 		});
 	};
+
+	mouseOver = e => {};
 
 	render() {
 		return (
@@ -67,7 +69,7 @@ class PostContainer extends React.Component {
 						))}
 					</div>
 					<div className="timeWrap">
-						<CardText className="timeStamp">
+						<CardText onMouseOver={this.mouseOver} className="timeStamp">
 							<Moment parse="MMMM Do YYYY, HH:mm:ss a" fromNow>
 								{/* Need to add hover to show actual time */}
 								{this.props.timestamp}
