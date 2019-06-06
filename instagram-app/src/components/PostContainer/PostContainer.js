@@ -1,9 +1,91 @@
 import React from "react";
-import "./PostContainer.scss";
+// import "./PostContainer.scss";
 import CommentSection from "../CommentSection/CommentSection";
 import Moment from "react-moment";
 import PropTypes from "prop-types";
 import { Card, CardImg, CardText } from "reactstrap";
+import styled from "styled-components";
+// import AddComment from "./PostContainerStyled";
+
+const PostWrap = styled.div`
+	display: flex;
+	justify-content: center;
+	padding: 2% 0;
+	${props => (props.type === "filter" ? props.display : null)}
+`;
+
+const PostContainerCSS = styled.div`
+	width: 60%;
+	border: 1px solid lightgrey;
+`;
+
+const PostTop = styled.div`
+	font-weight: bold;
+	vertical-align: center;
+`;
+
+const PostAvatar = styled.img`
+	width: 8%;
+	height: 8%;
+	margin: 2%;
+	object-fit: cover;
+	border-radius: 50%;
+`;
+
+const PostImage = styled.img`
+	width: 100%;
+`;
+
+const PostIcons = styled.div`
+	display: flex;
+	padding: 2% 3%;
+	font-size: 1.5rem;
+`;
+const PostIcon1 = styled.div`
+	width: 7%;
+`;
+
+const PostIcon2 = styled.div`
+	transform: scaleX(-1);
+`;
+
+const PostLikes = styled.div`
+	font-weight: bold;
+	padding: 0 3%;
+`;
+
+const PostComment = styled.div`
+	padding: 0 3%;
+`;
+
+const TimeWrap = styled.div`
+	display: flex;
+	justify-content: center;
+`;
+
+const TimeStamp = styled.div`
+	padding: 2% 0;
+	width: 95%;
+	font-size: 0.8rem;
+	color: grey;
+	border-bottom: 1px solid lightgrey;
+`;
+
+const PostForm = styled.form`
+	display: flex;
+`;
+
+const AddComment = styled.input`
+	border: none;
+	padding: 2% 3%;
+	flex-grow: 1;
+`;
+
+const Hide = styled.div`
+	display: none;
+`;
+
+// Refactor Styling
 
 class PostContainer extends React.Component {
 	constructor(props) {
@@ -45,49 +127,94 @@ class PostContainer extends React.Component {
 
 	render() {
 		return (
-			<div className={["postWrap", this.props.display].join(" ")}>
-				<Card className="postContainer">
-					<div className="postTop">
-						<img src={this.props.thumbnailUrl} alt="thumb" />
+			<PostWrap type="filter">
+				<PostContainerCSS>
+					<PostTop>
+						<PostAvatar src={this.props.thumbnailUrl} alt="thumb" />
 						{this.props.username}
-					</div>
+					</PostTop>
 					<div className="imageContainer">
-						<CardImg src={this.props.imageUrl} alt="main" />
+						<PostImage src={this.props.imageUrl} alt="main" />
 					</div>
-					<div className="postIcons">
-						<div onClick={this.addLike} className="postIcon">
+					<PostIcons>
+						<PostIcon1 onClick={this.addLike}>
 							<i className="far fa-heart" />
-						</div>
-						<div className="postIcon2">
+						</PostIcon1>
+						<PostIcon2>
 							<i className="far fa-comment" />
-						</div>
-					</div>
-					<CardText className="likes">{this.state.likes} Likes</CardText>
-					<div className="postComment">
+						</PostIcon2>
+					</PostIcons>
+					<PostLikes>{this.state.likes} Likes</PostLikes>
+					<PostComment>
 						{this.state.comments.map(el => (
 							<CommentSection key={el.id} {...el} />
 						))}
-					</div>
-					<div className="timeWrap">
-						<CardText onMouseOver={this.mouseOver} className="timeStamp">
+					</PostComment>
+					<TimeWrap>
+						<TimeStamp onMouseOver={this.mouseOver}>
 							<Moment parse="MMMM Do YYYY, HH:mm:ss a" fromNow>
 								{/* Need to add hover to show actual time */}
 								{this.props.timestamp}
 							</Moment>
-						</CardText>
-					</div>
-					<form onSubmit={this.addComment}>
-						<input
-							className="addComment"
+						</TimeStamp>
+					</TimeWrap>
+					<PostForm onSubmit={this.addComment}>
+						<AddComment
 							placeholder="Add a comment..."
 							value={this.state.newComment}
 							onChange={this.formChange}
 						/>
-					</form>
-				</Card>
-			</div>
+					</PostForm>
+				</PostContainerCSS>
+			</PostWrap>
 		);
 	}
+
+	// render() {
+	// 	return (
+	// 		<div className={["postWrap", this.props.display].join(" ")}>
+	// 			<Card className="postContainer">
+	// 				<div className="postTop">
+	// 					<img src={this.props.thumbnailUrl} alt="thumb" />
+	// 					{this.props.username}
+	// 				</div>
+	// 				<div className="imageContainer">
+	// 					<CardImg src={this.props.imageUrl} alt="main" />
+	// 				</div>
+	// 				<div className="postIcons">
+	// 					<div onClick={this.addLike} className="postIcon">
+	// 						<i className="far fa-heart" />
+	// 					</div>
+	// 					<div className="postIcon2">
+	// 						<i className="far fa-comment" />
+	// 					</div>
+	// 				</div>
+	// 				<CardText className="likes">{this.state.likes} Likes</CardText>
+	// 				<div className="postComment">
+	// 					{this.state.comments.map(el => (
+	// 						<CommentSection key={el.id} {...el} />
+	// 					))}
+	// 				</div>
+	// 				<div className="timeWrap">
+	// 					<CardText onMouseOver={this.mouseOver} className="timeStamp">
+	// 						<Moment parse="MMMM Do YYYY, HH:mm:ss a" fromNow>
+	// 							{/* Need to add hover to show actual time */}
+	// 							{this.props.timestamp}
+	// 						</Moment>
+	// 					</CardText>
+	// 				</div>
+	// 				<form onSubmit={this.addComment}>
+	// 					<input
+	// 						className="addComment"
+	// 						placeholder="Add a comment..."
+	// 						value={this.state.newComment}
+	// 						onChange={this.formChange}
+	// 					/>
+	// 				</form>
+	// 			</Card>
+	// 		</div>
+	// 	);
+	// }
 }
 
 PostContainer.propTypes = {
