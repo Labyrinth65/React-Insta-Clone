@@ -26,8 +26,8 @@ class PostsPage extends React.Component {
 		const searchTerm = e.target.value;
 		this.state.data.map(user => {
 			if (user.username.includes(searchTerm)) {
-				return (user.display = "");
-			} else return (user.display = "hide");
+				return (user.display = "flex");
+			} else return (user.display = "none");
 		});
 	};
 	// .filter(el => el.username.includes(this.state.searchValue))

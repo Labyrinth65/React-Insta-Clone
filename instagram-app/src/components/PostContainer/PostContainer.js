@@ -5,13 +5,12 @@ import Moment from "react-moment";
 import PropTypes from "prop-types";
 import { Card, CardImg, CardText } from "reactstrap";
 import styled from "styled-components";
-// import AddComment from "./PostContainerStyled";
 
 const PostWrap = styled.div`
 	display: flex;
 	justify-content: center;
 	padding: 2% 0;
-	${props => (props.type === "filter" ? props.display : null)}
+	display: ${props => props.displayProp};
 `;
 
 const PostContainerCSS = styled.div`
@@ -79,10 +78,10 @@ const AddComment = styled.input`
 	border: none;
 	padding: 2% 3%;
 	flex-grow: 1;
-`;
 
-const Hide = styled.div`
-	display: none;
+	&:focus {
+		outline: none;
+	}
 `;
 
 // Refactor Styling
@@ -127,7 +126,7 @@ class PostContainer extends React.Component {
 
 	render() {
 		return (
-			<PostWrap type="filter">
+			<PostWrap displayProp={this.props.display}>
 				<PostContainerCSS>
 					<PostTop>
 						<PostAvatar src={this.props.thumbnailUrl} alt="thumb" />
