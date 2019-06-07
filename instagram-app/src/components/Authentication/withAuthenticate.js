@@ -18,7 +18,7 @@ const withAuthenticate = Component => Component2 =>
 		}
 
 		render() {
-			return this.state.loggedIn === true ? <Component /> : <Component2 />;
+			return this.state.loggedIn ? <Component /> : <Component2 />;
 		}
 	};
 
