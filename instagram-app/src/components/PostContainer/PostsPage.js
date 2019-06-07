@@ -24,13 +24,25 @@ class PostsPage extends React.Component {
 		});
 
 		const searchTerm = e.target.value;
-		this.state.data.map(user => {
-			if (user.username.includes(searchTerm)) {
-				return (user.display = "flex");
-			} else return (user.display = "none");
-		});
+
+		this.setState(prevState => ({
+			data: prevState.data.map(user => {
+				if (user.username.includes(searchTerm)) {
+					user.display = "flex";
+					return user;
+				} else {
+					user.display = "none";
+					return user;
+				}
+			})
+		}));
+
+		// this.state.data.map(user => {
+		// 	if (user.username.includes(searchTerm)) {
+		// 		return (user.display = "flex");
+		// 	} else return (user.display = "none");
+		// });
 	};
-	// .filter(el => el.username.includes(this.state.searchValue))
 
 	render() {
 		return (
@@ -39,9 +51,11 @@ class PostsPage extends React.Component {
 					<SearchBar searchChange={this.searchChange} />
 				</header>
 				<main>
-					{this.state.data.map(el => (
-						<PostContainer key={el.id} {...el} />
-					))}
+					{this.state.data
+						// .filter(el => el.username.includes(this.state.searchValue))
+						.map(el => (
+							<PostContainer key={el.id} {...el} />
+						))}
 				</main>
 			</div>
 		);
